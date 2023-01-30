@@ -1,19 +1,19 @@
-const URL = "https://pokeapi.co/api/v2/pokemon/ditto";
+const apiEndpoint = 'https://pokeapi.co/api/v2/pokemon/';
 
-async function getData(URL) {
-  try {
-    const response = await fetch(URL);
-    const data = await response.json();
-    document.getElementById("api-response").textContent = data.content;
-    console.log(data.content);
-  } catch (error) {
-    console.log(error);
-  }
+async function getPokemon() {
+const pokemonId = document.getElementById('pokemonId').value;
+const response = await fetch(apiEndpoint + pokemonId);
+const data = await response.json();
+const pokemonHeight = data.height;
+const pokemonWeight = data.weight;
+const pokemonType = data.types[0].type.name;
+const pokemonAbility = data.abilities[0].ability.name;
+
+  document.getElementById('pokemonType').innerHTML = `Type: ${pokemonType}`;
+  document.getElementById('pokemonAbility').innerHTML = `Ability: ${pokemonAbility}`;
+  document.getElementById('pokemonHeight').innerHTML = `Height: ${pokemonHeight}`;
+  document.getElementById('pokemonWeight').innerHTML = `Weight: ${pokemonWeight}`;
 }
-getData(URL);
 
-async function getname() {
-  let big = await getData(URL);
 
-  big.game_indices.filter((thing) => thing.version.name).forEach((thing) => {});
-}
+document.getElementById('submitButton').addEventListener('click', getPokemon);

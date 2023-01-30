@@ -8,11 +8,23 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div class="title"><h1 class="peen">Choose Your Starter</h1></div>
-    <div class="types">
-      <p class="fire">Fire Type</p>
-      <p class="water">Water Type</p>
-    </div>
+    <div class="title"><h1 class="peen">The Pokemon Manual</h1></div>
+    <label for="location">Enter a Pokemon:</label>
+    <input type="text" id="pokemonId" name="location">
+    <button type="submit" id="submitButton">Search</button>
+<div class="box">  
+<div id="pokemonHeight"></div>
+<div id="pokemonWeight"></div>  
+<div id="pokemonType"></div>
+<div id="pokemonAbility"></div>
+
+
+</div> 
+<p class="info">*Height is measured in decimeters and weight in decigrams</p>
+
+   
+      
+
     <h2 id="api-response"></h2>
     <div id="app"></div>
     <script type="module" src="/main.js"></script>
